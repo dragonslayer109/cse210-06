@@ -1,0 +1,54 @@
+# cse210-06
+ Team Work
+# Cycle
+
+# Rules
+
+
+## Game Design
+
+def main() (Raydon)
+#runs game
+---
+
+class: Director() (Raydon)
+#Start game and keep game running
+
+---
+methon start_game() 
+method draw_objects()
+method update() 
+method collision()
+method removal()
+method score()
+---
+
+class: Point() (Erin)
+#
+
+class: Velocity() (Erin)
+#
+
+cLass: Color() (Erin)
+#
+
+class: Flying_Objects() (Raydon)
+# call point and velocity
+
+class: Aliens(Flying_Objects) (Erin)
+#
+
+class: Bullets(Flying_Objects) (Erin)
+#
+
+class: Ship() (Raydon)
+# call point and velocity()
+
+class: keyboard_service() (Erin)
+#
+
+Class: video_service() (Erin)
+#
+
+
+
