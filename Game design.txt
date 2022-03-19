@@ -24,31 +24,67 @@ method score()
 ---
 
 class: Point() (Erin)
-#
+#Controls the position of the objects.
+---
+get_x()
+get_y()
+add()
+equal()
+scale()
+---
 
 class: Velocity() (Erin)
-#
+#Controls the velocity at which the objects move.
+---
+get_velocity()
+set_velocity()
+---
 
 cLass: Color() (Erin)
-#
+#Chooses the colors to be displayed on the screen.
+---
+rgb_value(): None
+---
 
 class: Flying_Objects() (Raydon)
 # call point and velocity
 
 class: Aliens(Flying_Objects) (Erin)
-#
+#Creates the aliens.
+---
+get_alien(): None
+set_alien(): None
+update(): None
+collision(): None
+---
 
 class: Bullets(Flying_Objects) (Erin)
-#
+#Creates the bullets.
+---
+get_bullet(): None
+set_bullet(): None
+update(): None
+collision(): None
+---
 
 class: Ship() (Raydon)
 # call point and velocity()
 
 class: keyboard_service() (Erin)
-#
+#Detects and interprets the user's keyboard input.
+---
+get_direction(): None
+---
 
 Class: video_service() (Erin)
-#
-
-
-
+#Displays the game's output on the screen.
+---
+is_window_open(): None
+open_window(): None
+first_buffer(): None
+second_buffer(): None
+display_flying_object(): str
+display_flying_objects(): str
+_draw_grid(): None
+close_window(): None
+---
