@@ -20,12 +20,19 @@ class Director:
             pass
         self._video_service.close_window()
 
-    def draw(self):
+    def draw_objects(self):
         self._video_service.clear_buffer()
-        self._video_service.draw_
-        self._video_service.draw_
-        self._video_service.draw_
+        self._video_service.display_flying_object(aliens)
+        self._video_service.display_flying_object(bullets)
+        self._video_service.display_flying_object(ship)
         self._video_service.draw_
         self._video_service.flush_buffer()
-
+    def update(self):
+        pass
+    def collision(self):
+        pass
+    def removal(self):
+        pass
+    def score(self):
+        pass
 
