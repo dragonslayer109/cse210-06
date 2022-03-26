@@ -1,4 +1,4 @@
-from Game import Point
+from point import Point
 
 class Velocity():
     """
