@@ -21,6 +21,7 @@ class Director:
         self._video_service.close_window()
 
     def draw_objects(self):
+        pass
         self._video_service.clear_buffer()
         self._video_service.display_flying_object(aliens)
         self._video_service.display_flying_object(bullets)
