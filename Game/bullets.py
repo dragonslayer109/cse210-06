@@ -28,3 +28,9 @@ class Bullets(Flying_Objects):
         """
 
         self._bullet = bullet
+
+    def collision(self):
+        """
+        Called when collision is made with an alien.
+        """
+        self.alive = False

@@ -18,12 +18,18 @@ class Aliens(Flying_Objects):
             The visual representation of the alien.
         """
 
-        return self._rock
+        return self._alien
     
-    def set_rock(self, alien):
+    def set_alien(self, alien):
         """Sets the visual appearance of the alien.
         
         Args:
             alien: The visual representation of the alien.
         """
         self._alien = alien
+
+    def collision(self):
+        """
+        Called when collision is made with a bullet.
+        """
+        self.alive = False
