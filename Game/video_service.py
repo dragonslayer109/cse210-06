@@ -27,7 +27,7 @@ class VideoService:
         """Opens the window.
         """
 
-        pyray.init_window(constants.MAX_X, constants.MAX_Y)
+        pyray.init_window(constants.MAX_X, constants.MAX_Y, constants.CAPTION)
         pyray.set_target_fps(constants.FRAME_RATE)
 
     def first_buffer(self):
@@ -53,7 +53,7 @@ class VideoService:
         Args:
             flying_object: The Flying Object.
         """ 
-
+        pass
         text = flying_object.get_text()
         font_size = flying_object.get_font_size()
         color = flying_object.get_color().rgb_value()
@@ -68,14 +68,14 @@ class VideoService:
         Args:
             flying_objects: A group of Flying Objects.
         """ 
-
+        pass
         for flying_object in flying_objects:
             self.display_flying_object(flying_object)
 
     def _draw_grid(self):
         """Draws a grid on the screen and is used as a way to gather coordinates to determine the
         position of objects on the screen."""
-
+        pass
         for x in range(0, constants.MAX_X, constants.CELL_SIZE):
             pyray.draw_line(x, 0, x, constants.MAX_Y, pyray.GREY)
 
