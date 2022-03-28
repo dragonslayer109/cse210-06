@@ -27,6 +27,7 @@ class Director:
         self._video_service.display_flying_object(ship)
         self._video_service.draw_
         self._video_service.flush_buffer()
+        
     def update(self):
         pass
     def collision(self):
