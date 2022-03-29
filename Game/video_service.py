@@ -1,5 +1,8 @@
 import pyray
 import constants
+from aliens import Aliens
+from ship import Ship
+from bullets import Bullets
 
 class VideoService:
     """The responsibility of this class is to display the game on the screen. 
@@ -11,7 +14,12 @@ class VideoService:
         Args:
             debug: Checks to see whether the program needs to be run in debug mode.
         """
-
+        self._aliens = []
+        self._alien = Aliens()
+        self.pop = 10
+        self._ship = Ship()
+        self._bullets = []
+        self._bullet = Bullets()
         self._debug = debug
 
     def is_window_open(self):
@@ -47,30 +55,23 @@ class VideoService:
 
         pyray.end_drawing()
 
-    def display_flying_object(self, flying_object):
+    def display_flying_object(self):
         """Displays the Flying Object on the screen.
 
         Args:
             flying_object: The Flying Object.
         """ 
-        pass
-        text = flying_object.get_text()
-        font_size = flying_object.get_font_size()
-        color = flying_object.get_color().rgb_value()
-        x = flying_object.get_position().get_x()
-        y = flying_object.get_position().get_y()
-            
-        pyray.draw_text(text, font_size, color, x, y)
+        while self.pop > 0:
+            self._aliens.append(self._alien)
+            self.pop -= 1
+        
+        #for alien in self._alien:
+        #    alien.draw_alien()
 
-    def display_flying_objects(self, flying_objects):
-        """Draws the Flying Objects within the group.
+        #for bullet in self._bullets:
+        #    bullet.draw
 
-        Args:
-            flying_objects: A group of Flying Objects.
-        """ 
-        pass
-        for flying_object in flying_objects:
-            self.display_flying_object(flying_object)
+        self._ship.draw_ship()
 
     def _draw_grid(self):
         """Draws a grid on the screen and is used as a way to gather coordinates to determine the

@@ -17,18 +17,12 @@ class Director:
         """
         self._video_service.open_window()
         while self._video_service.is_window_open():
-            pass
-        self._video_service.close_window()
+            self.draw_objects()
+        #self._video_service.close_window()
 
     def draw_objects(self):
-        pass
-        self._video_service.clear_buffer()
-        self._video_service.display_flying_object(aliens)
-        self._video_service.display_flying_object(bullets)
-        self._video_service.display_flying_object(ship)
-        self._video_service.draw_
-        self._video_service.flush_buffer()
-        
+        self._video_service.display_flying_object()
+
     def update(self):
         pass
     def collision(self):

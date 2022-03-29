@@ -6,7 +6,7 @@ class Point:
         _y: The vertical distance from the point of origin.
     """
     
-    def __init__(self, x, y):
+    def __init__(self):
         """Constructs a new Point.
         
         Args:
@@ -14,26 +14,9 @@ class Point:
             y: The y (vertical) value.
         """
 
-        self._x = x
-        self._y = y
+        self.x = 0
+        self.y = 0
 
-    def get_x(self):
-        """Gets the horizontal coordinates.
-        
-        Returns:
-            The horizontal coordinates.
-        """
-
-        return self._x
-
-    def get_y(self):
-        """Gets the vertical coordinates.
-        
-        Returns:
-            The vertical coordinates.
-        """
-
-        return self._y
 
     def add(self, new):
         """Gets a new Point that is the sum of the new one and the given one.
