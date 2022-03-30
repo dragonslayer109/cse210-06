@@ -9,7 +9,6 @@ from flying_objects import Flying_Objects
 class Ship(Flying_Objects):
     
     def __init__(self):
-        pass
         self._text = "<|>"
         self._font_size = 15
         self._color = Color(255, 255, 255)
@@ -31,7 +30,7 @@ class Ship(Flying_Objects):
 
     def update(self):
         """
-        Update position of ship based on keys pressed
+        Update position of ship based on keys pressed (move functionality)
         """
         pass
 

@@ -19,7 +19,8 @@ class Point:
         self.y = 0
         self.dx = constants.DX
         self.dy = constants.DY
-
+        
+    # I do not think any of this is needed.
     #def add(self, new):
         """Gets a new Point that is the sum of the new one and the given one.
 

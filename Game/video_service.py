@@ -72,6 +72,7 @@ class VideoService:
         #    bullet.draw
 
         self._ship.draw_ship()
+        pyray.time.sleep()
 
     def _draw_grid(self):
         """Draws a grid on the screen and is used as a way to gather coordinates to determine the

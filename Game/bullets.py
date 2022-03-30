@@ -37,5 +37,22 @@ class Bullets(Flying_Objects):
         """
         Called when collision is made with an alien.
         """
+<<<<<<< HEAD
 
         self.alive = False
+=======
+        self.alive = False
+        
+    def draw_bullet(self):
+        """
+        Draw the bullets
+        """
+        text = self._text
+        self._position.x = int(random.uniform(0, constants.MAX_X))
+        self._position.y = int(random.uniform(10, 30))
+        x = self._position.x
+        y = self._position.y
+        font_size = self._font_size
+        color = self._color.rgb_value()
+        pyray.draw_text(text, x, y, font_size, color)
+>>>>>>> 77b0d741e4a7faee2a3e82a8be4b1f69c0ec7fbc
