@@ -9,6 +9,8 @@ MAX_Y = 600
 FRAME_RATE = 15
 FONT_SIZE = 15
 CAPTION = "Invasion"
+DX = 1
+DY = 1
 
 WHITE = Color(255, 255, 255)
 RED = Color(255, 0, 0)

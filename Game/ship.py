@@ -10,7 +10,7 @@ class Ship(Flying_Objects):
     
     def __init__(self):
         pass
-        self._text = "🚀"
+        self._text = "<|>"
         self._font_size = 15
         self._color = Color(255, 255, 255)
         self._position = Point()
@@ -20,11 +20,15 @@ class Ship(Flying_Objects):
         """
         Draw position of the ship on screen
         """
-        self._position.x = random.uniform(0, constants.MAX_X)
-        self._position.y = random.uniform(10, 30)
+        text = self._text
+        self._position.x = int(random.uniform(0, constants.MAX_X))
+        self._position.y = int(random.uniform(10, 30))
+        x = self._position.x
+        y = self._position.y
+        font_size = self._font_size
         color = self._color.rgb_value()
-        pyray.draw_text(self._text, self._font_size, color, self._position.x, self._position.y)
-    
+        pyray.draw_text(text, x, y, font_size, color)
+
     def update(self):
         """
         Update position of ship based on keys pressed
