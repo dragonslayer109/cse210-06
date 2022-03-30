@@ -41,10 +41,11 @@ class Bullets(Flying_Objects):
         """
         Draw the bullets
         """
-        text = flying_object.get_text()
-        font_size = flying_object.get_font_size()
-        color = flying_object.get_color().rgb_value()
-        x = flying_object.get_position().get_x()
-        y = flying_object.get_position().get_y()
-        
-        pyray.draw_text(text, font_size, color, x, y)
+        text = self._text
+        self._position.x = int(random.uniform(0, constants.MAX_X))
+        self._position.y = int(random.uniform(10, 30))
+        x = self._position.x
+        y = self._position.y
+        font_size = self._font_size
+        color = self._color.rgb_value()
+        pyray.draw_text(text, x, y, font_size, color)
