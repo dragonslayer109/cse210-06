@@ -1,6 +1,9 @@
 import pyray
 import constants
+import random
 from flying_objects import Flying_Objects
+from color import Color
+from point import Point
 
 class Bullets(Flying_Objects):
     """
@@ -9,42 +12,30 @@ class Bullets(Flying_Objects):
     """
 
     def __init__(self):
-        super().__init__()
 
-        self._bullet = "🎇"
-
-    def get_bullet(self):
-        """Gets the visual representation of the bullet.
-        
-        Returns:
-            The visual representation of the bullet.
-        """
-
-        return self._bullet
+        self._text = "*"
+        self._font_size = 15
+        self._color = Color(255, 255, 255)
+        self._position = Point()
+        self.alive = True
     
-    def set_bullet(self, bullet):
-        """Sets the appearance of the bullet.
-        
-        Args:
-            bullet: The visual representation of the bullet.
+    def draw_bullet(self):
         """
+        Draw the bullet on the screen
+        """
+        self._position.x = int(random.uniform(0, constants.MAX_X))
+        self._position.y = int(random.uniform(10, 30))
 
-        self._bullet = bullet
+        text = self._text
+        x = self._position.x
+        y = self._position.y
+        font_size = self._font_size
+        color = self._color.rgb_value()
+        pyray.draw_text(text, x, y, font_size, color)
 
     def collision(self):
         """
         Called when collision is made with an alien.
         """
+
         self.alive = False
-        
-    def draw_bullet(self):
-        """
-        Draw the bullets
-        """
-        text = flying_object.get_text()
-        font_size = flying_object.get_font_size()
-        color = flying_object.get_color().rgb_value()
-        x = flying_object.get_position().get_x()
-        y = flying_object.get_position().get_y()
-        
-        pyray.draw_text(text, font_size, color, x, y)
