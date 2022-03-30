@@ -16,7 +16,6 @@ class Director:
         """
         self._video_service.open_window()
         while self._video_service.is_window_open():
-<<<<<<< HEAD
             self.draw_objects() # Should be ship
             self.draw_objects() # Should be aliens
             self.draw_objects() # Should be bullets
@@ -25,12 +24,6 @@ class Director:
         #while self._video_service.is_window_open():
         #self.draw_objects()
         #self._video_service.close_window()
-=======
-            self.draw_objects()
-            self.update()
-            
-        self._video_service.close_window()
->>>>>>> 77b0d741e4a7faee2a3e82a8be4b1f69c0ec7fbc
 
     def draw_objects(self):
         self._video_service.display_flying_object()
