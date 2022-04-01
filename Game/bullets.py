@@ -13,7 +13,7 @@ class Bullets(Flying_Objects):
     """
 
     def __init__(self):
-
+        super().__init__()
         self._text = "*"
         self._font_size = 15
         self._color = Color(255, 255, 255)
@@ -36,8 +36,4 @@ class Bullets(Flying_Objects):
     def update(self):
         self._ship_position.position.y -= (self.move.dy * 5)
 
-    def hit(self):
-        """
-        Called when collision is made with an alien.
-        """
-        self.alive = False
+

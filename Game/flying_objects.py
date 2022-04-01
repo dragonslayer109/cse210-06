@@ -1,4 +1,4 @@
-import random
+import pyray
 from point import Point
 
 class Flying_Objects():
@@ -7,13 +7,26 @@ class Flying_Objects():
     Velocity of the object moving
     """
     def __init__(self):
-        self.center = Point()
-        self.velocity = Point()
+        self._position = Point()
         self.alive = True
 
+    def draw(self):
+        """
+        Draw the flying object
+        """
+        text = self._text
+        x = self._position.x
+        y = self._position.y
+        font_size = self._font_size
+        color = self._color.rgb_value()
+        pyray.draw_text(text, x, y, font_size, color)
+   
     def update(self):
+        pass
+
+    def hit(self):
         """
-        Moves the objects
+        Called when collision is made with a bullet.
         """
-        self.center.x += self.velocity.dx
-        self.center.y += self.velocity.dy       
+
+        self.alive = False
