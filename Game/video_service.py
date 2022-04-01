@@ -44,7 +44,7 @@ class VideoService:
         """
 
         pyray.begin_drawing()
-        pyray.clear_screen(pyray.BLACK)
+        pyray.clear_background(pyray.BLACK)
 
         if self._debug == True:
             self._draw_grid()
@@ -65,18 +65,42 @@ class VideoService:
             self._aliens.append(self._alien)
             self.pop -= 1
         
-        #for alien in self._alien:
-        #    alien.draw_alien()
+        for alien in self._aliens:
+            alien.draw()
 
-        #for bullet in self._bullets:
-        #    bullet.draw
+        for bullet in self._bullets:
+            bullet.draw()
 
-        self._ship.draw_ship()
-        pyray.time.sleep()
+        self._ship.draw()            
+    
+    def create_bullet(self):
+        """
+        Creat a bullet
+        """
+        self._bullets.append(self._bullet)
+
+    def collision(self):
+        """
+        check for collisions
+        """
+        too_close = 0
+
+        for alien in self._aliens:
+            for bullet in self._bullets:
+                if bullet.alive and alien.alive:
+                    if (abs(bullet.center.x - alien.center.x) <= too_close and
+                        abs(bullet.center.y - alien.center.y) <= too_close):
+                        bullet.hit
+                        alien.hit
+
+
+
 
     def _draw_grid(self):
-        """Draws a grid on the screen and is used as a way to gather coordinates to determine the
-        position of objects on the screen."""
+        """
+        Draws a grid on the screen and is used as a way to gather coordinates to determine the
+        position of objects on the screen.
+        """
         pass
         for x in range(0, constants.MAX_X, constants.CELL_SIZE):
             pyray.draw_line(x, 0, x, constants.MAX_Y, pyray.GREY)
