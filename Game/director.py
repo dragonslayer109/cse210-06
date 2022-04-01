@@ -36,12 +36,19 @@ class Director:
         self.collision()
 
     def collision(self):
+        self._video_service.collision()
         self.removal()
         self.score()
 
     def removal(self):
-        pass
+        for bullet in self._video_service._bullets:
+            if not bullet.alive:
+                self._video_service._bullets.remove(bullet)
+
+        for alien in self._video_service._aliens:
+            if not alien.alive:
+                self._video_service._aliens.remove(alien)
 
     def score(self):
-        pass
+        print(self._video_service.score) #Will be changed to a display on board later.
 

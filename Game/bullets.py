@@ -36,9 +36,8 @@ class Bullets(Flying_Objects):
     def update(self):
         self._ship_position.position.y -= (self.move.dy * 5)
 
-    def collision(self):
+    def hit(self):
         """
         Called when collision is made with an alien.
         """
-
         self.alive = False

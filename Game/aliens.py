@@ -36,7 +36,7 @@ class Aliens(Flying_Objects):
     def update(self):
         self._position.y += self._position.dy 
 
-    def collision(self):
+    def hit(self):
         """
         Called when collision is made with a bullet.
         """

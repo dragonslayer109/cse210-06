@@ -15,6 +15,7 @@ class Ship(Flying_Objects):
         self.position = Point()
         self.position.x = int(random.uniform(0, constants.MAX_X))
         self.position.y = int(random.uniform(560, constants.MAX_Y-20))
+        self.lives = 3
 
     
     def draw(self):
@@ -43,5 +44,7 @@ class Ship(Flying_Objects):
         """
         Called once collision is made with alien
         """
-        self.alive = False
+        self.lives -= 1
+        if self.lives <= 0:
+            self.alive = False
         #print game over to screen

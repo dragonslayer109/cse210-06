@@ -21,6 +21,7 @@ class VideoService:
         self._bullets = []
         self._bullet = Bullets()
         self._debug = debug
+        self.score = 0
 
     def is_window_open(self):
         """Checks whether the window is open.
@@ -84,17 +85,26 @@ class VideoService:
         check for collisions
         """
         too_close = 0
-
+        #run through all objects and check for collision
         for alien in self._aliens:
             for bullet in self._bullets:
                 if bullet.alive and alien.alive:
+                    #collision of bullet and alien
                     if (abs(bullet.center.x - alien.center.x) <= too_close and
                         abs(bullet.center.y - alien.center.y) <= too_close):
-                        bullet.hit
-                        alien.hit
-
-
-
+                        #update objects and score
+                        bullet.hit()
+                        alien.hit()
+                        self.score += 5
+            
+            if self._ship.alive and alien.alive:
+                #collision of ship and alien
+                if (abs(self._ship.center.x - alien.center.x) <= too_close and
+                        abs(self._ship.center.y - alien.center.y) <= too_close):
+                        #update objects and score
+                        alien.hit()
+                        self._ship.hit()
+                        self.score -= 5
 
     def _draw_grid(self):
         """
