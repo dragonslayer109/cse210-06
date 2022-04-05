@@ -1,4 +1,4 @@
-
+import pyray
 import constants
 import random
 
@@ -17,13 +17,20 @@ class Aliens(Flying_Objects):
         self._text = "0^0"
         self._font_size = 30
         self._color = Color(255, 255, 255)
-        self._position = Point()
+        self.position = Point()
         self.alive = True
-        self._position.x = int(random.uniform(0, constants.MAX_X))
-        self._position.y = int(random.uniform(0, 20))
+        self.position.x = int(random.uniform(0, constants.MAX_X))
+        self.position.y = int(random.uniform(0, 20))
     
+    def draw(self):
+        text = self._text
+        x = self.position.x
+        y = self.position.y
+        font_size = self._font_size
+        color = self._color.rgb_value()
+        pyray.draw_text(text, x, y, font_size, color)
 
     def update(self):
-        self._position.y += self._position.dy 
+        self.position.y += self.position.dy 
 
 

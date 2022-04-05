@@ -90,8 +90,8 @@ class VideoService:
             for bullet in self._bullets:
                 if bullet.alive and alien.alive:
                     #collision of bullet and alien
-                    if (abs(bullet.center.x - alien.center.x) <= too_close and
-                        abs(bullet.center.y - alien.center.y) <= too_close):
+                    if (abs(bullet.position.x - alien.position.x) <= too_close and
+                        abs(bullet.position.y - alien.position.y) <= too_close):
                         #update objects and score
                         bullet.hit()
                         alien.hit()
@@ -99,8 +99,8 @@ class VideoService:
             
             if self._ship.alive and alien.alive:
                 #collision of ship and alien
-                if (abs(self._ship.center.x - alien.center.x) <= too_close and
-                        abs(self._ship.center.y - alien.center.y) <= too_close):
+                if (abs(self._ship.position.x - alien.position.x) <= too_close and
+                        abs(self._ship.position.y - alien.position.y) <= too_close):
                         #update objects and score
                         alien.hit()
                         self._ship.hit()

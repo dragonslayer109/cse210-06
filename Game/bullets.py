@@ -17,7 +17,7 @@ class Bullets(Flying_Objects):
         self._text = "*"
         self._font_size = 15
         self._color = Color(255, 255, 255)
-        self._ship_position = Ship()
+        self.ship_position = Ship()
         self.alive = True
         self.move = Point()
     
@@ -27,13 +27,13 @@ class Bullets(Flying_Objects):
         """
 
         text = self._text
-        x = self._ship_position.position.x
-        y = self._ship_position.position.y
+        x = self.ship_position.position.x
+        y = self.ship_position.position.y
         font_size = self._font_size
         color = self._color.rgb_value()
         pyray.draw_text(text, x, y, font_size, color)
 
     def update(self):
-        self._ship_position.position.y -= (self.move.dy * 5)
+        self.ship_position.position.y -= (self.move.dy * 5)
 
 

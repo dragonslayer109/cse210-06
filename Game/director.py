@@ -28,6 +28,7 @@ class Director:
 
     def update(self):
         self._keyboard_service.get_direction()
+        self._keyboard_service.update()
         self.collision()
 
     def collision(self):
@@ -45,5 +46,6 @@ class Director:
                 self._video_service._aliens.remove(alien)
 
     def score(self):
-        print(self._video_service.score) #Will be changed to a display on board later.
+        pass
+        #print(self._video_service.score) #Will be changed to a display on board later.
 
