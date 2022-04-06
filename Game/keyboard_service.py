@@ -1,7 +1,5 @@
 
 import pyray
-from flying_objects import Flying_Objects
-from ship import Ship
 from video_service import VideoService
 
 
@@ -20,9 +18,7 @@ class KeyboardService:
             cell_size: The size of the current cell in the grid.
         """
         self._cell = cell
-        self._flying = Flying_Objects()
-        self._ship = Ship()
-        self._bullet = VideoService()
+        self._bullet = False
 
     def get_direction(self):
         """Gets the direction based on which keyboard keys the player presses.
@@ -34,17 +30,16 @@ class KeyboardService:
         
         if pyray.is_key_pressed(pyray.KEY_LEFT):
             direction_x = -self._cell
-            self._ship.move(direction_x)
-            print("left")
+            #print("left")
         
         if pyray.is_key_pressed(pyray.KEY_RIGHT):
             direction_x = self._cell
-            self._ship.move(direction_x)
-            print("right")
-        
+            #print("right")
+        return direction_x
+    
+    def get_bullet(self):    
         if pyray.is_key_pressed(pyray.KEY_SPACE):
-            self._bullet.create_bullet()
-            print("fire")
-
-    def update(self):
-        self._flying.update()
+            self._bullet = True
+            #print("fire")
+        return self._bullet
+            

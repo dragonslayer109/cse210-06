@@ -10,11 +10,9 @@ class Ship(Flying_Objects):
     
     def __init__(self):
         super().__init__()
-        self.alive = True
         self._text = "<|>"
         self._font_size = 20
         self._color = Color(255, 255, 255)
-        self.position = Point()
         self.position.x = int(random.uniform(0, constants.MAX_X))
         self.position.y = int(random.uniform(560, constants.MAX_Y-20))
         self.lives = 3
@@ -23,15 +21,6 @@ class Ship(Flying_Objects):
     def move(self, movement):
         self.position.x += movement
         #print(self.position.x)
-
-    def draw(self):
-        text = self._text
-        x = self.position.x
-        y = self.position.y
-        font_size = self._font_size
-        color = self._color.rgb_value()
-        pyray.draw_text(text, x, y, font_size, color)
-        print(self.position.x)
 
     def hit(self):
         """
