@@ -37,3 +37,12 @@ class Cast():
         self._actors.append(self._aliens)
         self._actors.append(self._bullets)
         self._actors.append(self._ship)
+
+    def remove_object(self):
+        for bullet in self._bullets:
+            if not bullet.alive:
+                self._bullets.remove(bullet)
+
+        for alien in self._aliens:
+            if not alien.alive:
+                self._aliens.remove(alien)

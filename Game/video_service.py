@@ -1,8 +1,5 @@
 import pyray
 import constants
-from aliens import Aliens
-from ship import Ship
-from bullets import Bullets
 
 class VideoService:
     """The responsibility of this class is to display the game on the screen. 

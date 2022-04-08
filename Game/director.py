@@ -31,7 +31,8 @@ class Director:
         self._cast.create_alien(self._pop)
 
     def draw_objects(self):
-        self._video_service.display_flying_object()
+        actors = self._cast.get_all_actors()
+        self._video_service.display_flying_objects(actors)
 
     def update(self):
         self._keyboard_service.get_direction()
@@ -46,8 +47,8 @@ class Director:
         """
         too_close = 0
         #run through all objects and check for collision
-        for alien in self._aliens:
-            for bullet in self._bullets:
+        for alien in self._cast._aliens:
+            for bullet in self._cast._bullets:
                 if bullet.alive and alien.alive:
                     #collision of bullet and alien
                     if (abs(bullet.position.x - alien.position.x) <= too_close and
@@ -57,23 +58,17 @@ class Director:
                         alien.hit()
                         self.score += 5
             
-            if self._ship.alive and alien.alive:
+            if self._cast._ship.alive and alien.alive:
                 #collision of ship and alien
-                if (abs(self._ship.position.x - alien.position.x) <= too_close and
-                        abs(self._ship.position.y - alien.position.y) <= too_close):
+                if (abs(self._cast._ship.position.x - alien.position.x) <= too_close and
+                        abs(self._cast._ship.position.y - alien.position.y) <= too_close):
                         #update objects and score
                         alien.hit()
-                        self._ship.hit()
+                        self._cast._ship.hit()
                         self.score -= 5
 
     def removal(self):
-        for bullet in self._video_service._bullets:
-            if not bullet.alive:
-                self._video_service._bullets.remove(bullet)
-
-        for alien in self._video_service._aliens:
-            if not alien.alive:
-                self._video_service._aliens.remove(alien)
+        self._cast.remove_object()
 
     def score(self):
         pass

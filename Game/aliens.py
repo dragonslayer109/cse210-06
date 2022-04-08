@@ -31,4 +31,9 @@ class Aliens(Flying_Objects):
     def update(self):
         self.position.y += self.position.dy 
 
+    def hit(self):
+        """
+        Called once collision is made
+        """
+        self.alive = False
 
