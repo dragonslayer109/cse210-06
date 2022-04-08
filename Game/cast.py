@@ -18,7 +18,7 @@ class Cast():
         Create aliens
         """
         while pop > 0:
-            self._aliens.append(self._alien)
+            self._aliens.extend(self._alien)
             pop -= 1   
 
     def create_ship(self):
@@ -34,9 +34,9 @@ class Cast():
         self._bullets.append(self._bullet)
 
     def get_all_actors(self):
-        self._actors.append(self._aliens)
-        self._actors.append(self._bullets)
-        self._actors.append(self._ship)
+        self._actors.extend(self._aliens)
+        self._actors.extend(self._bullets)
+        self._actors.extend(self._ship)
         return self._actors
 
     def remove_object(self):

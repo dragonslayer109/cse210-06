@@ -47,6 +47,7 @@ class VideoService:
         pyray.end_drawing()
 
     def draw(self, actor):
+        print(actor)
         text = actor._text
         x = actor.position.x
         y = actor.position.y
@@ -63,7 +64,10 @@ class VideoService:
         """ 
 
         for object in objects:
-            self.draw(object)       
+            print() 
+            #print(objects)
+            self.draw(object)
+                   
 
     def _draw_grid(self):
         """

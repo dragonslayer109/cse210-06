@@ -32,6 +32,7 @@ class Director:
 
     def draw_objects(self):
         actors = self._cast.get_all_actors()
+        print(actors)
         self._video_service.display_flying_objects(actors)
 
     def update(self):

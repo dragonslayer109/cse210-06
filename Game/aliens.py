@@ -19,14 +19,6 @@ class Aliens(Flying_Objects):
         self._color = Color(255, 255, 255)
         self.position.x = int(random.uniform(0, constants.MAX_X))
         self.position.y = int(random.uniform(0, 20))
-    
-    def draw(self):
-        text = self._text
-        x = self.position.x
-        y = self.position.y
-        font_size = self._font_size
-        color = self._color.rgb_value()
-        pyray.draw_text(text, x, y, font_size, color)
 
     def update(self):
         self.position.y += self.position.dy 

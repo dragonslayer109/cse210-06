@@ -20,18 +20,6 @@ class Bullets(Flying_Objects):
         self.position = Ship()
         self.alive = True
         self.move = Point()
-    
-    def draw(self):
-        """
-        Draw the bullet on the screen
-        """
-
-        text = self._text
-        x = self.position.position.x
-        y = self.position.position.y
-        font_size = self._font_size
-        color = self._color.rgb_value()
-        pyray.draw_text(text, x, y, font_size, color)
 
     def update(self):
         self.position.position.y -= (self.move.dy * 5)
