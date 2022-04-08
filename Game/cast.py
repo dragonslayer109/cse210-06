@@ -37,6 +37,7 @@ class Cast():
         self._actors.append(self._aliens)
         self._actors.append(self._bullets)
         self._actors.append(self._ship)
+        return self._actors
 
     def remove_object(self):
         for bullet in self._bullets:
