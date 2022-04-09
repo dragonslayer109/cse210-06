@@ -1,8 +1,8 @@
-import pyray
+
 import constants
 import random
 
-from point import Point
+
 from color import Color
 from flying_objects import Flying_Objects
 

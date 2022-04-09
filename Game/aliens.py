@@ -1,10 +1,10 @@
-import pyray
+
 import constants
 import random
 
 from flying_objects import Flying_Objects
 from color import Color
-from point import Point
+
 
 class Aliens(Flying_Objects):
     """

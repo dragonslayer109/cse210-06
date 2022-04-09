@@ -56,9 +56,9 @@ class Director:
         for alien in self._cast._aliens:
             for bullet in self._cast._bullets:
                 if bullet.alive and alien.alive:
-                    print(alien.position.y)
-                    print(bullet.position.y)
-                    print(bullet.position.y - alien.position.y)
+                    #print(alien.position.y)
+                    #print(bullet.position.y)
+                    #print(bullet.position.y - alien.position.y)
                     #collision of bullet and alien
                     if ((#first section
                         (bullet.position.x - alien.position.x) <= too_close or 
@@ -72,14 +72,25 @@ class Director:
                         bullet.hit()
                         alien.hit()
                         self.score += 5
-            
-            if self._cast._ship.alive and alien.alive:
-                #collision of ship and alien
-                if ((self._cast._ship.position.x - alien.position.x) <= too_close and
-                        (self._cast._ship.position.y - alien.position.y) <= too_close):
+        
+        for alien in self._cast._aliens:    
+            for ship in self._cast._ships:
+                if ship.alive and alien.alive:
+                    print(ship.position.y)
+                    print(alien.position.y)
+                    print((ship.position.y - alien.position.y))
+                    #collision of ship and alien
+                    if ((#first section
+                        (ship.position.x - alien.position.x) <= too_close or
+                        (ship.position.x - alien.position.x) <= (too_close + 30)
+                        ) and #and second section
+                        ((ship.position.y - alien.position.y) <= too_close or
+                        (ship.position.y - alien.position.y) <= (too_close + 30)
+                        )):
                         #update objects and score
+                        print("hit alien")
                         alien.hit()
-                        self._cast._ship.hit()
+                        ship.hit()
                         self.score -= 5
 
     def removal(self):
