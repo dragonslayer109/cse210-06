@@ -17,7 +17,6 @@ class Ship(Flying_Objects):
         self.position.y = int(random.uniform(560, constants.MAX_Y-20))
         self.lives = 3
 
-
     def move(self, movement):
         self.position.x += movement
         #print(self.position.x)

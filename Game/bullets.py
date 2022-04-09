@@ -1,7 +1,4 @@
-import pyray
-import constants
-import random
-from ship import Ship
+
 from flying_objects import Flying_Objects
 from color import Color
 from point import Point
@@ -12,17 +9,18 @@ class Bullets(Flying_Objects):
     Manages the appearance, position and velocity of the bullets.
     """
 
-    def __init__(self):
+    def __init__(self, ship_x, ship_y):
         super().__init__()
         self._text = "*"
         self._font_size = 15
         self._color = Color(255, 255, 255)
-        self.position = Ship()
+        self.position.x = ship_x
+        self.position.y = ship_y
         self.alive = True
         self.move = Point()
 
     def update(self):
-        self.position.position.y -= (self.move.dy * 5)
+        self.position.y -= (self.move.dy + 1)
 
     def hit(self):
         """

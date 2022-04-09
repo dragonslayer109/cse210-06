@@ -32,14 +32,16 @@ class Director:
 
     def draw_objects(self):
         actors = self._cast.get_all_actors()
-        print(actors)
+        #print(actors)
         self._video_service.display_flying_objects(actors)
 
     def update(self):
-        self._keyboard_service.get_direction()
+        self._cast._ship.move(self._keyboard_service.get_direction())
         check = self._keyboard_service.get_bullet()
         if check:
-            self._cast.create_bullet()
+            self._cast.create_bullet(self._cast._ship.position.x, self._cast._ship.position.y)
+        self._cast._alien.update()
+        self._cast._bullet.update()
         self.collision()
 
     def collision(self):

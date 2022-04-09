@@ -47,12 +47,17 @@ class VideoService:
         pyray.end_drawing()
 
     def draw(self, actor):
-        print(actor)
+        #print(actor)
         text = actor._text
+        #print(text)
         x = actor.position.x
+        #print(x)
         y = actor.position.y
+        #print(y)
         font_size = actor._font_size
+        #print(font_size)
         color = actor._color.rgb_value()
+        #print(color)
         pyray.draw_text(text, x, y, font_size, color)
 
 
@@ -64,7 +69,7 @@ class VideoService:
         """ 
 
         for object in objects:
-            print() 
+            #print() 
             #print(objects)
             self.draw(object)
                    
