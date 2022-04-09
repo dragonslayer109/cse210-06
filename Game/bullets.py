@@ -1,4 +1,4 @@
-
+import constants
 from flying_objects import Flying_Objects
 from color import Color
 from point import Point
@@ -20,12 +20,16 @@ class Bullets(Flying_Objects):
         self.move = Point()
 
     def update(self):
-        self.position.y -= (self.move.dy + 1)
+        if self.position.y <= 0:
+            self.position.y -=(self.move.dy + 1) 
+        else:
+            self.alive = False
 
     def hit(self):
         """
         Called once collision is made
         """
         self.alive = False
+        print("hit")
 
 

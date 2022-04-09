@@ -18,7 +18,12 @@ class Ship(Flying_Objects):
         self.lives = 3
 
     def move(self, movement):
-        self.position.x += movement
+        if self.position.x < 0:
+            self.position.x = constants.MAX_X
+        elif self.position.x > constants.MAX_X:
+            self.position.x = 0
+        else:
+            self.position.x += movement
         #print(self.position.x)
 
     def hit(self):

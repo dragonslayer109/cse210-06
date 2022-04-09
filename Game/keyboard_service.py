@@ -28,18 +28,19 @@ class KeyboardService:
         """
         direction_x = 0
         
-        if pyray.is_key_pressed(pyray.KEY_LEFT):
+        if pyray.is_key_down(pyray.KEY_LEFT):
             direction_x = -self._cell
             #print("left")
         
-        if pyray.is_key_pressed(pyray.KEY_RIGHT):
+        if pyray.is_key_down(pyray.KEY_RIGHT):
             direction_x = self._cell
             #print("right")
         return direction_x
     
     def get_bullet(self):    
         if pyray.is_key_pressed(pyray.KEY_SPACE):
-            self._bullet = True
+            #self._bullet = True
             #print("fire")
-        return self._bullet
+            return True
+        return False
             

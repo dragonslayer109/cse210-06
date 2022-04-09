@@ -21,11 +21,15 @@ class Aliens(Flying_Objects):
         self.position.y = int(random.uniform(0, 20))
 
     def update(self):
-        self.position.y += self.position.dy 
+        if self.position.y <= constants.MAX_Y:
+            self.position.y += self.position.dy 
+        else:
+            self.alive = False
 
     def hit(self):
         """
         Called once collision is made
         """
         self.alive = False
+        print("Dead")
 
