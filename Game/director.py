@@ -13,6 +13,7 @@ class Director:
         self._keyboard_service = KeyboardService()
         self._pop = 10
         self._cast = Cast()
+        self.score = 0
 
     def start_game(self):
         """
@@ -41,8 +42,10 @@ class Director:
         if check:
             self._cast.create_bullet(self._cast._ship.position.x, self._cast._ship.position.y)
         self._cast._alien.update()
-        self._cast._bullet.update()
+        for bullets in self._cast._bullets:
+            bullets.update()
         self.collision()
+        self.removal()
 
     def collision(self):
         """
@@ -53,18 +56,27 @@ class Director:
         for alien in self._cast._aliens:
             for bullet in self._cast._bullets:
                 if bullet.alive and alien.alive:
+                    print(alien.position.y)
+                    print(bullet.position.y)
+                    print(bullet.position.y - alien.position.y)
                     #collision of bullet and alien
-                    if (abs(bullet.position.x - alien.position.x) <= too_close and
-                        abs(bullet.position.y - alien.position.y) <= too_close):
+                    if ((#first section
+                        (bullet.position.x - alien.position.x) <= too_close or 
+                        (bullet.position.x - alien.position.x) <= (too_close + 30)
+                        ) and #and second section
+                        ((bullet.position.y - alien.position.y) <= too_close or
+                        (bullet.position.y - alien.position.y) <= (too_close + 30)
+                        )):
                         #update objects and score
+                        print("hit here")
                         bullet.hit()
                         alien.hit()
                         self.score += 5
             
             if self._cast._ship.alive and alien.alive:
                 #collision of ship and alien
-                if (abs(self._cast._ship.position.x - alien.position.x) <= too_close and
-                        abs(self._cast._ship.position.y - alien.position.y) <= too_close):
+                if ((self._cast._ship.position.x - alien.position.x) <= too_close and
+                        (self._cast._ship.position.y - alien.position.y) <= too_close):
                         #update objects and score
                         alien.hit()
                         self._cast._ship.hit()

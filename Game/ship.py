@@ -15,6 +15,7 @@ class Ship(Flying_Objects):
         self._color = Color(255, 255, 255)
         self.position.x = int(random.uniform(0, constants.MAX_X))
         self.position.y = int(random.uniform(560, constants.MAX_Y-20))
+        self.alive = True
         self.lives = 3
 
     def move(self, movement):

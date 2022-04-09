@@ -19,9 +19,10 @@ class Bullets(Flying_Objects):
         self.alive = True
         self.move = Point()
 
+
     def update(self):
-        if self.position.y <= 0:
-            self.position.y -=(self.move.dy + 1) 
+        if self.position.y >= 0:
+            self.position.y -= (self.move.dy + 1) 
         else:
             self.alive = False
 

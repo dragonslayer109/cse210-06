@@ -16,6 +16,7 @@ class Aliens(Flying_Objects):
         super().__init__()
         self._text = "0^0"
         self._font_size = 30
+        self.alive = True
         self._color = Color(255, 255, 255)
         self.position.x = int(random.uniform(0, constants.MAX_X))
         self.position.y = int(random.uniform(0, 20))
