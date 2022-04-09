@@ -22,7 +22,7 @@ class Bullets(Flying_Objects):
 
     def update(self):
         if self.position.y >= 0:
-            self.position.y -= (self.move.dy + 1) 
+            self.position.y -= (self.move.dy + 5) 
         else:
             self.alive = False
 
@@ -31,6 +31,6 @@ class Bullets(Flying_Objects):
         Called once collision is made
         """
         self.alive = False
-        print("hit")
+        #print("hit")
 
 

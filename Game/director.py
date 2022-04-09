@@ -62,23 +62,25 @@ class Director:
                     #collision of bullet and alien
                     if ((#first section
                         (bullet.position.x - alien.position.x) <= too_close or 
-                        (bullet.position.x - alien.position.x) <= (too_close + 30)
+                        (bullet.position.x - alien.position.x) <= (too_close + 40)
                         ) and #and second section
                         ((bullet.position.y - alien.position.y) <= too_close or
                         (bullet.position.y - alien.position.y) <= (too_close + 30)
                         )):
                         #update objects and score
-                        print("hit here")
+                        #print("hit here")
                         bullet.hit()
                         alien.hit()
                         self.score += 5
+                        print(f"Score: {self.score}")
+                        print("You win! ~ Game Over!")
         
         for alien in self._cast._aliens:    
             for ship in self._cast._ships:
                 if ship.alive and alien.alive:
-                    print(ship.position.y)
-                    print(alien.position.y)
-                    print((ship.position.y - alien.position.y))
+                    #print(ship.position.y)
+                    #print(alien.position.y)
+                    #print((ship.position.y - alien.position.y))
                     #collision of ship and alien
                     if ((#first section
                         (ship.position.x - alien.position.x) <= too_close or
@@ -88,15 +90,15 @@ class Director:
                         (ship.position.y - alien.position.y) <= (too_close + 30)
                         )):
                         #update objects and score
-                        print("hit alien")
+                        #print("hit alien")
                         alien.hit()
                         ship.hit()
                         self.score -= 5
+                        print(f"Score: {self.score}")
+                        print("You Died! ~ Game Over!")
+                        ship.hit()
 
     def removal(self):
         self._cast.remove_object()
 
-    def score(self):
-        pass
-        #print(self._video_service.score) #Will be changed to a display on board later.
 

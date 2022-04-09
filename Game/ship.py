@@ -34,4 +34,4 @@ class Ship(Flying_Objects):
         self.lives -= 1
         if self.lives <= 0:
             self.alive = False
-        #print game over to screen
+            
