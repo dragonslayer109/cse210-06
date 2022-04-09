@@ -60,13 +60,17 @@ class Director:
                     #print(bullet.position.y)
                     #print(bullet.position.y - alien.position.y)
                     #collision of bullet and alien
+                    
                     if ((#first section
-                        (bullet.position.x - alien.position.x) <= too_close or 
+                        (bullet.position.x - alien.position.x) >= too_close and # > 0 < 40
                         (bullet.position.x - alien.position.x) <= (too_close + 40)
                         ) and #and second section
-                        ((bullet.position.y - alien.position.y) <= too_close or
+                        ((bullet.position.y - alien.position.y) >= too_close and
                         (bullet.position.y - alien.position.y) <= (too_close + 30)
                         )):
+                    
+                    #if (((bullet.position.x - alien.position.x) < 0 > 40) and 
+                        #(bullet.position.y - alien.position.y < 0 > 30)):
                         #update objects and score
                         #print("hit here")
                         bullet.hit()
@@ -83,10 +87,10 @@ class Director:
                     #print((ship.position.y - alien.position.y))
                     #collision of ship and alien
                     if ((#first section
-                        (ship.position.x - alien.position.x) <= too_close or
+                        (ship.position.x - alien.position.x) >= too_close and
                         (ship.position.x - alien.position.x) <= (too_close + 30)
                         ) and #and second section
-                        ((ship.position.y - alien.position.y) <= too_close or
+                        ((ship.position.y - alien.position.y) >= too_close and
                         (ship.position.y - alien.position.y) <= (too_close + 30)
                         )):
                         #update objects and score
